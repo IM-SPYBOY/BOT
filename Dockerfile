@@ -1,5 +1,7 @@
-WORKDIR /usr/src/app
-RUN chmod 777 /usr/src/app
+FROM node:14-alpine
+
+WORKDIR /app
+RUN chmod 777 /app
 
 RUN npm install
 
