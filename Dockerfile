@@ -1,16 +1,15 @@
-FROM node:14-alpine
+FROM node:bullseye-slim
 
-WORKDIR /app
-RUN chmod 777 /app
+WORKDIR /app/
 
-COPY package*.json ./
-RUN npm install
+ENV OPENAI_API_KEY ""
+ENV PREFIX_ENABLED ""
 
 COPY . .
 
-ENV NODE_ENV production
-ENV PORT 3000
+RUN npm install -g npm@9.6.0
+RUN npm install vite-node
+RUN apt-get update
+RUN apt-get install chromium -y
 
-EXPOSE $PORT
-
-CMD [ "node", "index.js" ]
+CMD ["node", "index.js"]
