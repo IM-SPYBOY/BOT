@@ -3,7 +3,7 @@ version: "3.3"
 services:
   app:
     build: .
-    command: bash start.sh
+    command: npm install && node index.js
     restart: on-failure
     ports:
       - "80:80"
