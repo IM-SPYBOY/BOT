@@ -6,6 +6,11 @@ RUN chmod 777 /app
 COPY package*.json ./
 RUN npm install
 
-COPY . /app
+COPY . .
 
-CMD ["bash", "/app/start.sh"]
+ENV NODE_ENV production
+ENV PORT 3000
+
+EXPOSE $PORT
+
+CMD [ "node", "index.js" ]
