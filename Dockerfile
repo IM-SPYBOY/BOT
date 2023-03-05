@@ -2,10 +2,10 @@ FROM node:bullseye-slim
 
 WORKDIR /app/
 
-COPY index*.js /app/
-COPY package*.json /app/
+COPY ..
 
 RUN npm install -g npm@9.6.0
 RUN apt-get update
-RUN node index.js
+RUN npm install vite-node
+
 CMD ["node", "index.js"]
