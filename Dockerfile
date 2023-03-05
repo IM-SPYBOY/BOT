@@ -2,8 +2,7 @@ FROM node:bullseye-slim
 
 WORKDIR /app/
 
-
-COPY /app/index.js
+COPY index*.js ./
 COPY package*.json ./
 
 RUN npm install
